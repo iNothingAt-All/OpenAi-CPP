@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "MensajesGPT.hpp"
+#include "MensajeGPT.hpp"
 #include "ChatGPT.hpp"
 #include "ArchivoJson.hpp"
 
