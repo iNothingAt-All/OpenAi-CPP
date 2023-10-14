@@ -2,7 +2,7 @@
 #include <string>
 #include <nlohmann/json.hpp>
 
-namespace MensajesGPT
+namespace MensajeGPT
 {   
     inline nlohmann::json base_interaccion(const std::string& rol, const std::string& contenido) {
         return {{"role", rol}, {"content", contenido}};

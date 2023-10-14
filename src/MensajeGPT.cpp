@@ -1,9 +1,9 @@
 #include <string> 
 #include <nlohmann/json.hpp>
 
-#include "MensajesGPT.hpp"
+#include "MensajeGPT.hpp"
 
-namespace MensajesGPT
+namespace MensajeGPT
 {
     nlohmann::json orden(const std::string& contenido) { return base_interaccion("system", contenido); }
     nlohmann::json interaccion(const std::string& contenido) { return base_interaccion("user", contenido); }
