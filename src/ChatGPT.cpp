@@ -4,7 +4,7 @@
 
 #include "ChatGPT.hpp"
 #include "SolicitudOpenAi.hpp"
-#include "MensajesGPT.hpp"
+#include "MensajeGPT.hpp"
 
 ChatGPT::~ChatGPT() {}
 ChatGPT::ChatGPT(const std::string& modelo, const std::string& api_key) 
@@ -16,8 +16,8 @@ ChatGPT::ChatGPT(const std::string& modelo, const std::string& api_key, const st
 
 void ChatGPT::mensaje(const std::string& mensaje)
 {
-    mensajes.push_back(MensajesGPT::interaccion(mensaje));
-    enviar_campo(MensajesGPT::base_envio_chat(modelo, mensajes).dump());
+    mensajes.push_back(MensajeGPT::interaccion(mensaje));
+    enviar_campo(MensajeGPT::base_envio_chat(modelo, mensajes).dump());
 }
 
 void ChatGPT::enviar() 
