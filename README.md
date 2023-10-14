@@ -23,37 +23,18 @@ Por facilidad están los archivos `_build.sh` y `_run.sh` que ayudarán a la gen
 En caso de querer respuestas o comportamientos personalizados se le puede pasar un contexto o listado de ordenes que definan como debe actuar la IA.
 
 ```cpp
-#include <iostream>
-#include <string>
+ChatGPT chat(
+    configuracion["modelo_chat"], 
+    configuracion["key"],
+{        
+    // Ordenes de comportamiento
+    MensajesGPT::orden("Vas a traducir todo lo que te digan a ingles"),
+    MensajesGPT::orden("Tu respuesta desde tener 'Translation -> '"),
 
-#include "MensajesGPT.hpp"
-#include "ChatGPT.hpp"
-#include "ArchivoJson.hpp"
-
-int main()
-{
-    ArchivoJson configuracion{"configuracion.json"};
-
-    ChatGPT chat(
-        configuracion["modelo_chat"], 
-        configuracion["key"],
-    {        
-        // Ordenes de comportamiento
-        MensajesGPT::orden("Vas a traducir todo lo que te digan a ingles"),
-        MensajesGPT::orden("Tu respuesta desde tener 'Translation -> '"),
-
-        // Ejemplos de interaccion
-        MensajesGPT::interaccion("Hola"),
-        MensajesGPT::respuesta("Translation -> Hello"),
-        MensajesGPT::interaccion("Mi nombre es Luis"),
-        MensajesGPT::respuesta("Translation -> My name is Luis")
-    });
-
-    chat.mensaje("hola");
-    chat.enviar();
-
-    std::cout << chat.respuesta;
-
-    return 0;
-}
+    // Ejemplos de interaccion
+    MensajesGPT::interaccion("Hola"),
+    MensajesGPT::respuesta("Translation -> Hello"),
+    MensajesGPT::interaccion("Mi nombre es Luis"),
+    MensajesGPT::respuesta("Translation -> My name is Luis")
+});
 ```
