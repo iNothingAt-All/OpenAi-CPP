@@ -14,6 +14,7 @@ SolicitudOpenAi::SolicitudOpenAi(const std::string& api_url, const std::string& 
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &resultado);
 }
 
+
 bool SolicitudOpenAi::openai_solicitud()
 {
     if(not curl_solicitud()) return false;

@@ -10,9 +10,11 @@ SolicitudCUrl::SolicitudCUrl(const std::string& url)
     : ConexionCUrl{url}
 {}
 
+
 void SolicitudCUrl::enviar_campo(const std::string& campo) {
     curl_easy_setopt(curl, CURLOPT_COPYPOSTFIELDS, campo.c_str());
 }
+
 
 bool SolicitudCUrl::curl_solicitud()
 {

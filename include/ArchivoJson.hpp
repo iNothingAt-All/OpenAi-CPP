@@ -9,8 +9,8 @@ struct ArchivoJson
     ArchivoJson(const std::string&);
     ~ArchivoJson();
 
-    void escribir(nlohmann::json);
-
-    nlohmann::json contenido;
-    std::string archivo;
+    void escribir(const nlohmann::json&);
+    
+    nlohmann::json contenido {};
+    std::string archivo {" "};
 };

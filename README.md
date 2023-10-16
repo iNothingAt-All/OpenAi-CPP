@@ -23,6 +23,8 @@ Por facilidad están los archivos `_build.sh` y `_run.sh` que ayudarán a la gen
 En caso de querer respuestas o comportamientos personalizados se le puede pasar un contexto o listado de ordenes que definan como debe actuar la IA.
 
 ```cpp
+ArchivoJson configuracion {"configuracion.json"};
+
 ChatGPT chat(
     configuracion["modelo_chat"], 
     configuracion["key"],
@@ -37,4 +39,26 @@ ChatGPT chat(
     MensajeGPT::interaccion("Mi nombre es Luis"),
     MensajeGPT::respuesta("Translation -> My name is Luis")
 });
+```
+
+El contexto puede venir de un archivo json externo que contenga instruciones 
+
+> Este metodo puede ser usado para retomar conversaciones ya hechas.
+
+```cpp
+ArchivoJson configuracion {"configuracion.json"};
+ArchivoJson contexto {"conversacion.json"};
+
+ChatGPT chat(
+    configuracion["modelo_chat"], 
+    configuracion["key"], 
+
+    contexto.contenido
+);
+```
+
+Una forma de guardar las conversaciones es mediante el metodo `escribir` de la clase `ArchivoJson`
+
+```cpp
+contexto.escribir(chat.conversacion);
 ```

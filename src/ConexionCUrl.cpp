@@ -10,6 +10,7 @@ ConexionCUrl::ConexionCUrl(const std::string& url)
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 }
 
+
 void ConexionCUrl::encabezados_http(const std::string& contenido, const std::string& autenticacion)
 {
     curl_slist* encabezados {nullptr};

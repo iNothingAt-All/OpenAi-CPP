@@ -1,23 +1,31 @@
 #include <iostream>
 #include <string>
 
-#include "MensajeGPT.hpp"
 #include "ChatGPT.hpp"
 #include "ArchivoJson.hpp"
 
 int main()
 {
-    ArchivoJson configuracion{"configuracion.json"};
+    std::string mensaje {" "};
+    ArchivoJson configuracion {"configuracion.json"};
+    ArchivoJson contexto {"conversacion.json"};
 
     ChatGPT chat(
         configuracion["modelo_chat"], 
-        configuracion["key"]
+        configuracion["key"],
+        contexto.contenido
     );
 
-    chat.mensaje("hola");
-    chat.enviar();
+    for(int interacciones = 0; interacciones < 5; ++interacciones) 
+    {
+        std::cout << ">> "; std::getline(std::cin, mensaje);
 
-    std::cout << chat.respuesta;
+        chat.mensaje(mensaje);
+        chat.enviar();
+
+        std::cout << chat.respuesta + "\n\n";
+        contexto.escribir(chat.conversacion);
+    }
 
     return 0;
 }
