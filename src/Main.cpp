@@ -20,12 +20,13 @@ int main()
     {   
         std::cout << ">> "; std::getline(std::cin, mensaje);
 
-        contexto.actualizar();
+        
         chat.mensaje(mensaje);
         chat.enviar();
 
         std::cout << chat.respuesta + "\n\n";
         contexto.escribir(chat.conversacion);
+        contexto.actualizar();
     }
 
     return 0;
