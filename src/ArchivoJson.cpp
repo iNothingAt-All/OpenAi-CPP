@@ -9,6 +9,12 @@ ArchivoJson::~ArchivoJson() {}
 ArchivoJson::ArchivoJson(const std::string& archivo)
     : archivo{archivo}
 {
+    leer(archivo);
+}
+
+
+void ArchivoJson::leer(const std::string& archivo)
+{
     std::ifstream contenido_archivo {archivo};
 
     if(contenido_archivo.fail())
@@ -18,6 +24,12 @@ ArchivoJson::ArchivoJson(const std::string& archivo)
     }
 
     contenido_archivo >> contenido;
+}
+
+
+void ArchivoJson::update()
+{
+   leer(archivo);
 }
 
 
@@ -46,3 +58,5 @@ std::string ArchivoJson::operator [](const std::string& key)
     
     return contenido[key]; 
 }
+
+bool ArchivoJson::operator!() { return contenido.is_null(); }
