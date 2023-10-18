@@ -27,7 +27,7 @@ void ArchivoJson::leer(const std::string& archivo)
 }
 
 
-void ArchivoJson::update()
+void ArchivoJson::actualizar()
 {
    leer(archivo);
 }

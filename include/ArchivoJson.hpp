@@ -12,7 +12,7 @@ struct ArchivoJson
 
     void escribir(const nlohmann::json&);
     void leer(const std::string&);
-    void update();
+    void actualizar();
 
     nlohmann::json contenido {};
     std::string archivo {" "};
