@@ -20,7 +20,6 @@ int main()
     {   
         std::cout << ">> "; std::getline(std::cin, mensaje);
 
-        
         chat.mensaje(mensaje);
         chat.enviar();
 
