@@ -51,13 +51,13 @@ El contexto también puede provenir de un archivo externo que contenta todas las
 `comportamiento.json`
 ```json
 [
-    {"role": "system", "content", "Vas a traducir todo lo que te digan a ingles"},
-    {"role": "system", "content", "Tu respuesta desde tener 'Translation -> '"},
+    {"role": "system", "content": "Vas a traducir todo lo que te digan a ingles"},
+    {"role": "system", "content": "Tu respuesta desde tener 'Translation -> '"},
 
-    {"role": "user", "content", "Hola"},
-    {"role": "assistant", "content", "Translation -> Hello"},
-    {"role": "user", "content", "Mi nombre es Luis"},
-    {"role": "assistant", "content", "Translation -> My name is Luis"}
+    {"role": "user", "content": "Hola"},
+    {"role": "assistant", "content": "Translation -> Hello"},
+    {"role": "user", "content": "Mi nombre es Luis"},
+    {"role": "assistant", "content": "Translation -> My name is Luis"}
 ]
 ```
 `Main.cpp`
