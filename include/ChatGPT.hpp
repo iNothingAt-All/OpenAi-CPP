@@ -18,5 +18,5 @@ struct ChatGPT : SolicitudOpenAi
     std::string modelo {" "};
     std::string respuesta {" "};
 
-    nlohmann::json conversacion = nlohmann::json::array();
+    nlohmann::json conversacion {};
 };

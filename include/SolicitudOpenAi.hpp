@@ -17,5 +17,5 @@ struct SolicitudOpenAi : ConexionOpenAi
         return tamanyo * cantidad;
     }
 
-    nlohmann::json resultado = nlohmann::json::object();
+    nlohmann::json resultado {};
 };
