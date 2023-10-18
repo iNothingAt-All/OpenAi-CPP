@@ -50,5 +50,6 @@ std::string ArchivoJson::operator [](const std::string& key)
     return contenido[key]; 
 }
 
+
 bool ArchivoJson::operator!() { return contenido.is_null(); }
 void ArchivoJson::actualizar() { leer(archivo); }
