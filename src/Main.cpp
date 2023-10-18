@@ -7,8 +7,10 @@
 int main()
 {
     std::string mensaje {" "};
-    ArchivoJson configuracion {"configuracion.json"};
+    ArchivoJson configuracion {"configuracion.json"};    
     ArchivoJson contexto {"conversacion.json"};
+    
+    if(!configuracion or !contexto) return 1;
 
     ChatGPT chat(
         configuracion["modelo_chat"], 
