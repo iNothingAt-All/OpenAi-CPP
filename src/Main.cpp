@@ -10,10 +10,8 @@ int main()
     ArchivoJson configuracion {"configuracion.json"};    
     ArchivoJson contexto {"conversacion.json"};
     
-    if(!configuracion or !contexto) return 1;
-
     ChatGPT chat(
-        configuracion["modelo_chat"], 
+        configuracion["modelo_chat"],
         configuracion["key"],
         contexto.contenido
     );
