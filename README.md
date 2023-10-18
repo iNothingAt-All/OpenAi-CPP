@@ -6,8 +6,9 @@ Una adaptación de la API de OpenAi a C++
 - [curl](https://curl.se/)
 
 ## Configuración
-Debe especificar su "key" de OpenAI API y un modelo acorde a su plan de la API
+Debe especificar su "key" de **OpenAI API** y un modelo acorde a su plan de la API
 
+`configuracion.json`
 ```json
 {
     "key": "sk-...  qa6",
@@ -22,13 +23,14 @@ Por facilidad están los archivos `_build.sh` y `_run.sh` que ayudarán a la gen
 ## Personalización de IA
 En caso de querer respuestas o comportamientos personalizados se le puede pasar un contexto o listado de ordenes que definan como debe actuar la IA.
 
+`Main.cpp`
 ```cpp
 ArchivoJson configuracion {"configuracion.json"};
 
 ChatGPT chat(
     configuracion["modelo_chat"], 
     configuracion["key"],
-{        
+{
     // Ordenes de comportamiento
     MensajeGPT::orden("Vas a traducir todo lo que te digan a ingles"),
     MensajeGPT::orden("Tu respuesta desde tener 'Translation -> '"),
@@ -39,26 +41,58 @@ ChatGPT chat(
     MensajeGPT::interaccion("Mi nombre es Luis"),
     MensajeGPT::respuesta("Translation -> My name is Luis")
 });
+.
+.
+.
 ```
 
-El contexto puede venir de un archivo json externo que contenga instruciones 
+El contexto también puede provenir de un archivo externo que contenta todas las instrucciones de comportamiento o conversaciones pasadas para retomarlas.
 
-> Este metodo puede ser usado para retomar conversaciones ya hechas.
+`comportamiento.json`
+```json
+[
+    {"role": "system", "content", "Vas a traducir todo lo que te digan a ingles"},
+    {"role": "system", "content", "Tu respuesta desde tener 'Translation -> '"},
 
+    {"role": "user", "content", "Hola"},
+    {"role": "assistant", "content", "Translation -> Hello"},
+    {"role": "user", "content", "Mi nombre es Luis"},
+    {"role": "assistant", "content", "Translation -> My name is Luis"}
+]
+```
+`Main.cpp`
 ```cpp
 ArchivoJson configuracion {"configuracion.json"};
-ArchivoJson contexto {"conversacion.json"};
+ArchivoJson comportamiento  {"comportamiento .json"};
 
 ChatGPT chat(
     configuracion["modelo_chat"], 
-    configuracion["key"], 
+    configuracion["key"],
 
-    contexto.contenido
+    comportamiento.contenido
 );
+.
+.
+.
 ```
 
-Una forma de guardar las conversaciones es mediante el metodo `escribir` de la clase `ArchivoJson`
+Las conversaciones se podrán guardar mediante el método **escribir** de la clase **ArchivoJson** al igual que actualizar el contenido del archivo en tiempo de ejecución mediante **actualizar**.
+
+`Main.cpp`
 
 ```cpp
-contexto.escribir(chat.conversacion);
+.
+.
+.
+for(int interacciones = 0; interacciones < 5; ++interacciones) 
+{
+    std::cout << ">> ";  std::getline(std::cin, mensaje);
+
+    contexto.actualizar();
+    chat.mensaje(mensaje);
+    chat.enviar();
+
+    std::cout << chat.respuesta + "\n\n";
+    contexto.escribir(chat.conversacion);
+}
 ```
