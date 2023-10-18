@@ -78,8 +78,6 @@ ChatGPT chat(
 
 Las conversaciones se podrán guardar mediante el método **escribir** de la clase **ArchivoJson** al igual que actualizar el contenido del archivo en tiempo de ejecución mediante **actualizar**.
 
-`Main.cpp`
-
 ```cpp
 .
 .
