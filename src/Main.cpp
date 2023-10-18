@@ -19,9 +19,10 @@ int main()
     );
 
     for(int interacciones = 0; interacciones < 5; ++interacciones) 
-    {
+    {   
         std::cout << ">> "; std::getline(std::cin, mensaje);
 
+        contexto.actualizar();
         chat.mensaje(mensaje);
         chat.enviar();
 
