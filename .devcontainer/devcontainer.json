@@ -1,5 +1,5 @@
 {
-	"name": "OpenAi-CPP",
+	"name": "C++",
 	"build": {
 		"dockerfile": "Dockerfile"
 	}
