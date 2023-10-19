@@ -63,7 +63,7 @@ El contexto también puede provenir de un archivo externo que contenta todas las
 `Main.cpp`
 ```cpp
 ArchivoJson configuracion {"configuracion.json"};
-ArchivoJson comportamiento  {"comportamiento .json"};
+ArchivoJson comportamiento  {"comportamiento.json"};
 
 ChatGPT chat(
     configuracion["modelo_chat"], 
