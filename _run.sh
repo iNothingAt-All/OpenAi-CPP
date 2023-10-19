@@ -1,3 +1,1 @@
-#!/bin/bash
-
-./bin/main
+cd ./bin && ./main && cd ..
