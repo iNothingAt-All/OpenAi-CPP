@@ -48,7 +48,7 @@ ChatGPT chat(
 
 El contexto también puede provenir de un archivo externo que contenta todas las instrucciones de comportamiento o conversaciones pasadas para retomarlas.
 
-`comportamiento.json`
+`contexto.json`
 ```json
 [
     {"role": "system", "content": "Vas a traducir todo lo que te digan a ingles"},
@@ -63,13 +63,13 @@ El contexto también puede provenir de un archivo externo que contenta todas las
 `Main.cpp`
 ```cpp
 ArchivoJson configuracion {"configuracion.json"};
-ArchivoJson comportamiento  {"comportamiento.json"};
+ArchivoJson contexto {"contexto.json"};
 
 ChatGPT chat(
     configuracion["modelo_chat"], 
     configuracion["key"],
 
-    comportamiento.contenido
+    contexto.contenido
 );
 .
 .
